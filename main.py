@@ -4,19 +4,11 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-# Allow all origins for simplicity; adjust as needed for your use case
-origins = [
-    "http://localhost",
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
-    "http://127.0.0.1:5500",
-    "http://localhost:5500",
-
-]
+# Allow all origins
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
